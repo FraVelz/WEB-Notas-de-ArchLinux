@@ -1,0 +1,41 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="404 - Página no encontrada - Notas de Arch Linux">
+  <div class="flex flex-col items-center justify-center min-h-[60vh] text-center">
+    <div class="mb-8">
+      <h1 class="text-9xl font-bold text-blue-600 dark:text-blue-400 mb-4">404</h1>
+      <h2 class="text-3xl font-semibold text-gray-800 dark:text-gray-200 mb-4">
+        Página no encontrada
+      </h2>
+      <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-md">
+        Lo sentimos, la página que estás buscando no existe o ha sido movida.
+      </p>
+    </div>
+    
+    <div class="flex flex-col sm:flex-row gap-4">
+      <a 
+        href="/" 
+        class="px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-medium rounded-lg transition-colors duration-200"
+      >
+        Volver al inicio
+      </a>
+      <a 
+        href="/conceptos" 
+        class="px-6 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-800 dark:text-gray-200 font-medium rounded-lg transition-colors duration-200"
+      >
+        Ver contenido
+      </a>
+    </div>
+
+    <div class="mt-12 text-sm text-gray-500 dark:text-gray-500">
+      <p>Si crees que esto es un error, puedes:</p>
+      <ul class="mt-2 space-y-1">
+        <li>• Verificar la URL</li>
+        <li>• Usar el menú de navegación</li>
+        <li>• Volver a la <a href="/" class="text-blue-600 dark:text-blue-400 hover:underline">página principal</a></li>
+      </ul>
+    </div>
+  </div>
+</MainLayout>
