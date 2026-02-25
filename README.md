@@ -1,5 +1,7 @@
 # Notas de Arch Linux
 
+![English Version](./README.EN.md)
+
 ![Captura de pantalla](./screenshot.png)
 
 Mi web de notas de arch linux. Esta guía le ayudará a conocer mejor arch linux, desde personalizar, como paquetes, y muchas más cosas, todo acerca de Arch Linux. Tener en cuenta que son recopilación de información que me ha sido útil para conocer mejor el sistema operativo y sé que también les puede ser útiles.
@@ -19,27 +21,29 @@ Este proyecto está construido con [Astro](https://astro.build), [MDX](https://m
 
 ## 📁 Estructura del proyecto
 
+Aproximadamente...
+
 ```txt
 /
 ├── public/
-│   └── imagenes/          # Imágenes estáticas
+│ └── images/ # Static images
 ├── src/
-│   ├── content/           # Archivos MDX (contenido)
-│   ├── layouts/           # Layouts de Astro
-│   ├── pages/             # Páginas/rutas de Astro
-│   └── components/        # Componentes reutilizables
-├── astro.config.mjs       # Configuración de Astro
-├── tailwind.config.mjs    # Configuración de TailwindCSS
-└── package.json           # Dependencias del proyecto
+│ ├── content/ # MDX files (content)
+│ ├── layouts/ # Astro layouts
+│ ├── pages/ # Astro pages/paths
+│ └── components/ # Reusable components
+├── astro.config.mjs # Astro configuration
+├── tailwind.config.mjs # Tailwind configuration TailwindCSS
+└── package.json # Project Dependencies
 ```
 
 ---
 
 ## ⚠️ Nota importante
 
-Es importante saber que este repositorio no pretende ser una guía paso a paso para la configuración de Arch Linux, sino guiar a los nuevos usuarios. Es importante investigar cómo funcionan los elementos por separado y los diferentes temas de esta guía. Deberá investigar el funcionamiento específico de cada elemento o la sintaxis de personalización específica por su cuenta.
+Es importante tener en cuenta que la web no pretende ser una guía paso a paso para la instalación o configuración completa de Arch Linux, sino más bien una orientación para usuarios nuevos. Se recomienda investigar de manera independiente cómo funciona cada elemento y profundizar en los distintos temas tratados en esta guía. Cada usuario deberá aprender por su cuenta el funcionamiento específico de cada componente y la sintaxis de personalización correspondiente.
 
-Esta guía es una guía, no un curso. Tener muy en cuenta eso.
+Recuerda: esta es una guía orientativa, no un curso completo. Tenlo muy presente.
 
 ---
 
