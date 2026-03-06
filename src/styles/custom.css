@@ -1,0 +1,17 @@
+/* Personalización del tema Notas de Arch Linux */
+/* Starlight ya incluye tema claro/oscuro por defecto */
+
+:root,
+:root[data-theme='light'] {
+  /* Ajuste de color de acento para modo claro - tono azul Arch */
+  --sl-color-accent: hsl(204, 70%, 45%);
+  --sl-color-accent-low: hsl(204, 70%, 92%);
+  --sl-color-accent-high: hsl(204, 70%, 30%);
+}
+
+:root:not([data-theme='light']) {
+  /* Ajuste de color de acento para modo oscuro */
+  --sl-color-accent: hsl(204, 70%, 55%);
+  --sl-color-accent-low: hsl(204, 50%, 18%);
+  --sl-color-accent-high: hsl(204, 70%, 75%);
+}

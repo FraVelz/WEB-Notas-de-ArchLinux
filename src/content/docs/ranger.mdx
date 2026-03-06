@@ -1,0 +1,61 @@
+---
+title: Ranger
+description: Administrador de archivos para la terminal
+---
+
+**Ranger** es un **administrador de archivos para la terminal** (CLI). Es muy popular entre usuarios avanzados de Linux porque **permite navegar por tus carpetas y archivos sin necesidad de usar el ratón**, todo desde la terminal y de forma muy rápida.
+
+---
+
+## ¿Qué es Ranger?
+
+Ranger es un **file manager basado en texto**, escrito en **Python**, que muestra una interfaz **en modo consola** con un diseño de **paneles tipo árbol**.
+
+---
+
+## Características principales
+
+✅ **Interfaz en modo texto**, muy rápida.
+✅ **Control 100% con el teclado** (usa atajos tipo Vim).
+✅ **Muestra vistas previas** de archivos (texto, imágenes, PDFs, videos, etc.).
+✅ **Permite abrir archivos con programas externos**.
+✅ **Altamente configurable** (atajos, temas, scripts).
+✅ **Navegación en múltiples paneles**.
+
+---
+
+## Instalación y uso
+
+```bash
+sudo pacman -S ranger
+ranger
+```
+
+---
+
+## Atajos de teclado básicos
+
+| Acción            | Tecla             |
+| ----------------- | ----------------- |
+| Subir / bajar     | ↑ / ↓ o `k` / `j` |
+| Entrar en carpeta | → o `l`           |
+| Volver atrás      | ← o `h`           |
+| Eliminar archivo  | `dd`              |
+| Copiar archivo    | `yy`              |
+| Pegar archivo     | `pp`              |
+| Abrir archivo     | `Enter`           |
+| Salir             | `q`               |
+
+---
+
+## Crear archivos y carpetas
+
+**Crear archivo:** Presiona `:` y escribe `touch nombre.txt`
+
+**Crear carpeta:** Presiona `:` y escribe `mkdir nueva_carpeta`
+
+---
+
+## Configuración
+
+Los archivos de configuración están en `~/.config/ranger/`. Puedes personalizar atajos, temas y comportamientos en `rc.conf`.

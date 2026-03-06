@@ -1,0 +1,96 @@
+---
+title: Plymouth
+description: Pantalla de carga durante el arranque en Arch Linux
+---
+
+## Etapas de arranque antes del login
+
+Cuando prendes el PC, el flujo es más o menos así:
+
+```
+Encendido → BIOS/UEFI → GRUB → Kernel → Plymouth → SDDM → Hyprland
+```
+
+---
+
+## 1. GRUB (gestor de arranque)
+
+* Es el menú que aparece **apenas enciendes**, donde eliges el sistema operativo.
+* Normalmente es texto negro con letras blancas.
+
+```bash
+sudo nano /etc/default/grub
+```
+
+Busca la línea `GRUB_THEME=` y pon la ruta a un tema. Luego:
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+---
+
+## 2. Plymouth (pantalla de carga)
+
+* Se muestra **después de GRUB y antes de SDDM**.
+* Es la típica **pantalla de carga con logo o animación** mientras arranca el sistema.
+
+### Instalación
+
+```bash
+sudo pacman -S plymouth
+```
+
+### Habilitar en Arch
+
+En Arch, Plymouth se incluye en el initramfs:
+
+#### a) Elegir un tema
+
+```bash
+sudo plymouth-set-default-theme -R spinner
+```
+
+* `-R` reconstruye automáticamente el initramfs con el tema seleccionado.
+
+#### b) Configurar el bootloader
+
+Si usas **GRUB**, edita `/etc/default/grub`:
+
+```
+GRUB_CMDLINE_LINUX="quiet splash"
+```
+
+Luego:
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+#### c) Rebuild initramfs
+
+```bash
+sudo mkinitcpio -P
+```
+
+### Probar sin reiniciar
+
+```bash
+sudo plymouthd
+sudo plymouth --show-splash
+sudo plymouth quit
+```
+
+---
+
+## 3. SDDM (pantalla de login)
+
+Después de Plymouth aparece SDDM.
+
+---
+
+## Resumen
+
+* **GRUB** → pantalla inicial con menú del sistema.
+* **Plymouth** → pantalla de carga animada mientras el sistema inicia.
+* **SDDM** → pantalla de inicio de sesión gráfica.

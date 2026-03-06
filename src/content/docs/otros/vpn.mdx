@@ -1,0 +1,71 @@
+---
+title: VPN
+description: ProtonVPN en Arch Linux con Hyprland
+---
+
+ProtonVPN funciona muy bien en Arch con **Hyprland**. Lo más práctico es manejarlo por **terminal** o con un **applet en Waybar**.
+
+---
+
+## Instalación de ProtonVPN en Arch (CLI)
+
+1. Asegúrate de tener OpenVPN:
+
+   ```bash
+   sudo pacman -S openvpn
+   ```
+
+2. Instala el cliente desde AUR (necesitas `yay` o `paru`):
+
+   ```bash
+   yay -S protonvpn-cli-community
+   ```
+
+   Si no funciona, construye manualmente:
+
+   ```bash
+   git clone https://aur.archlinux.org/protonvpn-cli-community.git
+   cd protonvpn-cli-community
+   makepkg -si
+   ```
+
+3. Inicia sesión con tu cuenta de Proton:
+
+   ```bash
+   protonvpn-cli login TU_USUARIO
+   ```
+
+   Usa el **nombre de usuario de ProtonVPN** (no el correo de ProtonMail). Lo encuentras en [tu panel de ProtonVPN](https://account.protonvpn.com/).
+
+4. Conéctate:
+
+   ```bash
+   protonvpn-cli connect --fastest
+   ```
+
+   O a un país específico:
+
+   ```bash
+   protonvpn-cli connect --cc ES
+   ```
+
+5. Para desconectarte:
+
+   ```bash
+   protonvpn-cli disconnect
+   ```
+
+---
+
+## Comandos útiles
+
+```bash
+protonvpn-cli status          # Ver estado
+protonvpn-cli ks --on         # Activar kill-switch
+```
+
+---
+
+## Integración con Hyprland
+
+Si usas **Waybar**, puedes añadir un módulo personalizado que ejecute `protonvpn-cli status` para mostrar el estado del VPN en la barra.

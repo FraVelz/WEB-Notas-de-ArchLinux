@@ -1,8 +1,8 @@
 # Arch Linux Notes
 
-![Version en Español](./README.md)
+[Version en Español](./README.md)
 
-![Screenshot](./screenshot.png)
+![Screenshot](./public/screenshot.png)
 
 My Arch Linux notes website. This guide will help you learn more about Arch Linux, from customization and packages to much more—everything about Arch Linux. Keep in mind that this is a compilation of information that has been useful to me in getting to know the operating system better, and I know it can be useful to you as well.
 

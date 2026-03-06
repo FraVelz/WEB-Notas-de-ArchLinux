@@ -1,8 +1,8 @@
 # Notas de Arch Linux
 
-![English Version](./README.EN.md)
+[English Version](./README.EN.md)
 
-![Captura de pantalla](./screenshot.png)
+![Captura de pantalla](./public/screenshot.png)
 
 Mi web de notas de arch linux. Esta guía le ayudará a conocer mejor arch linux, desde personalizar, como paquetes, y muchas más cosas, todo acerca de Arch Linux. Tener en cuenta que son recopilación de información que me ha sido útil para conocer mejor el sistema operativo y sé que también les puede ser útiles.
 

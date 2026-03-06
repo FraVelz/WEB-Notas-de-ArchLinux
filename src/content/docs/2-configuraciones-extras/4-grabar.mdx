@@ -1,0 +1,81 @@
+---
+title: Grabar pantalla
+description: wf-recorder para grabar en Wayland/Hyprland
+---
+
+## wf-recorder
+
+* `wf-recorder` es un **grabador de pantalla para Wayland**, compatible con **Hyprland, Sway, Wayfire**.
+* Graba **pantalla completa, monitores específicos o regiones** y guarda en video (MP4, MKV, etc.).
+* **No funciona en X11** (usa ffmpeg allí).
+
+---
+
+### Instalación
+
+```bash
+sudo pacman -S wf-recorder ffmpeg
+```
+
+---
+
+### Comandos básicos
+
+**Grabar pantalla completa**
+
+```bash
+wf-recorder -f output.mp4
+```
+
+**Grabar un monitor específico**
+
+```bash
+wlr-randr   # lista monitores
+wf-recorder -m <nombre_monitor> -f output.mp4
+```
+
+**Grabar solo una región**
+
+```bash
+wf-recorder -g x,y,w,h -f output.mp4
+```
+
+---
+
+### Opciones importantes
+
+| Opción                    | Descripción                                                         |
+| ------------------------- | ------------------------------------------------------------------- |
+| `-f <archivo>`            | Archivo de salida, obligatorio.                                     |
+| `-m <monitor>`            | Captura un monitor específico.                                      |
+| `-g <geometría>`          | Captura una región (x,y,ancho,alto).                                |
+| `-c <codec>`              | Codec de video (ej: libx264).                                      |
+| `-r <fps>`                | Frames por segundo (default 30).                                   |
+| `--no-audio`              | Ignorar audio.                                                     |
+| `--audio-source <device>` | Selecciona la fuente de audio.                                     |
+
+---
+
+### Ver fuentes de audio
+
+```bash
+pactl list sources short
+```
+
+---
+
+### Pausar / Reanudar
+
+wf-recorder no tiene pausa nativa. Solución: grabar en partes y unir con ffmpeg:
+
+```bash
+ffmpeg -f concat -safe 0 -i <(printf "file '%s'\n" parte1.mp4 parte2.mp4) -c copy final.mp4
+```
+
+---
+
+### Atajos
+
+* Ctrl+C → Detener grabación.
+* `wlr-randr` → Ver monitores conectados.
+* `pactl list sources short` → Ver fuentes de audio.

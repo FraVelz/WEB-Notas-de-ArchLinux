@@ -1,0 +1,105 @@
+---
+title: LazyVim - Fundamentos
+description: Framework de configuración para Neovim
+---
+
+## ¿Qué es LazyVim?
+
+**LazyVim** es un **framework de configuración para Neovim**, que viene preconfigurado para que tengas un entorno moderno de desarrollo con:
+
+* **Plugins listos para usar**, organizados de forma modular.
+* **Carga de plugins bajo demanda (lazy-loading)**, lo que hace que Neovim inicie más rápido.
+* Buenas **prácticas de configuración**, sin tener que escribir todo desde cero.
+
+En pocas palabras: es como un **esqueleto optimizado de Neovim** que puedes extender según tus necesidades.
+
+---
+
+## ¿Por qué usar LazyVim?
+
+* **Ahorro de tiempo**: No necesitas instalar y configurar cada plugin manualmente.
+* **Optimización de rendimiento**: LazyVim usa `lazy.nvim` para cargar plugins solo cuando son necesarios.
+* **Modularidad**: Puedes desactivar o reemplazar cualquier plugin sin afectar el resto.
+* **Compatibilidad moderna**: Todo está pensado para usar las últimas funciones de Neovim.
+
+---
+
+## Estructura de archivos de LazyVim
+
+```
+~/.config/nvim/
+├── lua/
+│   ├── config/        <-- tu configuración personal (opcional)
+│   ├── plugins/       <-- plugins específicos que quieras agregar
+│   └── lazyvim/       <-- configuración base de LazyVim
+├── init.lua           <-- archivo principal que carga LazyVim
+└── plugin/            <-- configuración general de plugins
+```
+
+---
+
+## Cómo funcionan los plugins en LazyVim
+
+LazyVim usa **lazy-loading** mediante el plugin `lazy.nvim`:
+
+* Cada plugin se declara con una configuración mínima.
+* Se puede cargar **automáticamente** al abrir cierto tipo de archivo, ejecutar un comando o presionar una tecla.
+* Esto mejora el tiempo de arranque de Neovim.
+
+Ejemplo:
+
+```lua
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    run = ":TSUpdate",
+    event = "BufRead",
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        highlight = { enable = true },
+      }
+    end,
+  },
+}
+```
+
+---
+
+## Configuración básica con Lua
+
+**Ejemplo mínimo de `init.lua`:**
+
+```lua
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.clipboard = "unnamedplus"
+
+vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
+```
+
+---
+
+## Declarar un plugin
+
+```lua
+return {
+  {
+    "autor/nombre-del-plugin",
+    config = function()
+      require("plugin").setup({ ... })
+    end
+  }
+}
+```
+
+Opciones de lazy-loading:
+
+| Opción  | Qué hace                                                            |
+| ------- | ------------------------------------------------------------------- |
+| `event` | Se carga al ocurrir un evento (abrir archivo, iniciar Neovim, etc.) |
+| `cmd`   | Se carga al ejecutar un comando específico                          |
+| `ft`    | Se carga solo para ciertos tipos de archivo                         |
+| `keys`  | Se carga cuando se presiona cierta tecla                            |

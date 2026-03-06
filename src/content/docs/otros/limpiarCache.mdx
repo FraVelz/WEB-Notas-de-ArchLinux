@@ -1,0 +1,60 @@
+---
+title: Limpiar caché
+description: Desinstalar paquetes y limpiar dependencias en Arch Linux
+---
+
+Cuando instalas cosas (Pacman, AUR helpers como yay/paru), a veces quedan **archivos residuales**, configuraciones, caches o dependencias que ya no se usan.
+
+---
+
+## 1. Pacman (paquetes oficiales)
+
+Para desinstalar **y limpiar dependencias que ya no usa ningún otro paquete**:
+
+```bash
+sudo pacman -Rns wofi
+```
+
+* `R` → remove (elimina el paquete)
+* `n` → remove **archivos de configuración**
+* `s` → remove **dependencias instaladas automáticamente** que ya no necesita ningún otro paquete
+
+---
+
+## 2. AUR (yay, paru, etc.)
+
+```bash
+yay -Rns typora
+```
+
+Para limpiar el cache de AUR:
+
+```bash
+yay -Sc
+```
+
+---
+
+## 3. Limpieza adicional de caches
+
+**Pacman cache**:
+
+```bash
+sudo pacman -Sc    # limpia paquetes antiguos no instalados
+sudo pacman -Scc   # limpia TODO el cache
+```
+
+**Archivos de configuración en el home**: algunos programas dejan `~/.config/typora` o `~/.local/share/wofi`. Puedes eliminarlos manualmente:
+
+```bash
+rm -rf ~/.config/typora
+rm -rf ~/.local/share/wofi
+```
+
+---
+
+## 4. Reglas prácticas
+
+1. Usar siempre `-Rns` al desinstalar con pacman o AUR.
+2. Limpiar caches (`pacman -Sc` o `yay -Sc`) periódicamente.
+3. Revisar `~/.config`, `~/.local/share` y `~/.cache` si quieres eliminar completamente rastros de configuración.

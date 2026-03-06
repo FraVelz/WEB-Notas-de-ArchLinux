@@ -1,0 +1,109 @@
+---
+title: Formas para instalar paquetes en Arch Linux
+description: Pacman, AUR, Flatpak y Chaotic-AUR
+---
+
+## Temario
+
+- [Formas para instalar paquetes en Arch Linux](#formas-para-instalar-paquetes-en-arch-linux)
+  - [Temario](#temario)
+    - [🧩 1. **Repositorios oficiales (pacman)**](#-1-repositorios-oficiales-pacman)
+    - [🧠 2. **AUR (Arch User Repository)**](#-2-aur-arch-user-repository)
+    - [📦 3. **Flatpak**](#-3-flatpak)
+    - [⚙️ En resumen](#️-en-resumen)
+
+[Regresar a la guía principal](/)
+
+---
+
+### 🧩 1. **Repositorios oficiales (pacman)**
+
+* **Gestor:** `pacman`
+
+* * **Comando base:** `sudo pacman -S paquete`
+
+* * **Ejemplo:** `sudo pacman -S firefox`
+
+**Características:**
+
+* Son **mantenidos por el equipo oficial de Arch Linux**.
+* Garantizan **estabilidad, seguridad y compatibilidad**.
+* Se actualizan rápidamente, pero solo con **software probado**.
+
+**Ventajas:**
+
+* Máxima confiabilidad y compatibilidad.
+* No necesitas nada extra (ya viene con Arch).
+
+**Desventajas:**
+
+* A veces hay menos programas o versiones menos recientes comparado con AUR o Flatpak.
+
+---
+
+### 🧠 2. **AUR (Arch User Repository)**
+
+* **Gestor:** asistentes como `yay`, `paru`, `trizen`, etc.
+* **Comando base:** `yay -S paquete`
+
+**Características:**
+
+* Es un **repositorio comunitario mantenido por usuarios**.
+* Contiene **PKGBUILDs** (scripts) que te permiten compilar el programa desde el código fuente o empaquetado de otros sistemas.
+* Muy amplio: puedes encontrar prácticamente **cualquier software existente**.
+
+**Ventajas:**
+
+* Acceso a software que no está en los repos oficiales.
+* Versiones *git* o más nuevas que las de `pacman`.
+
+**Desventajas:**
+
+* No está verificado oficialmente.
+* Puede fallar o contener scripts inseguros si no revisas el PKGBUILD antes de instalar.
+* Las instalaciones tardan más, porque a veces **compilan el código**.
+
+🧩 **Chaotic-AUR** es una versión "compilada" del AUR, mantenida por una comunidad confiable.
+➡️ Permite **instalar software del AUR directamente con pacman**, sin compilar, porque ya vienen **precompilados y firmados**.
+
+* Ejemplo: `sudo pacman -Syu paquete --from chaotic-aur`
+
+---
+
+### 📦 3. **Flatpak**
+
+* **Gestor:** `flatpak`
+* **Comando base:** `flatpak install paquete`
+
+**Características:**
+
+* Sistema **universal** para instalar apps en cualquier distribución Linux.
+* Cada aplicación se ejecuta en un **sandbox (aislada del sistema)**.
+* Usa **Flathub** como repositorio principal.
+
+**Ventajas:**
+
+* Seguridad (aislamiento del sistema).
+* Apps actualizadas y compatibles con cualquier distro.
+* Ideal para programas gráficos o de escritorio.
+
+**Desventajas:**
+
+* Ocupar más espacio (cada app lleva sus dependencias).
+* No se integra tan bien con el sistema como las de pacman.
+
+---
+
+### ⚙️ En resumen
+
+| Tipo                  | Gestor                         | Fuente         | Ventajas                     | Desventajas                 | Ideal para                                   |
+| --------------------- | ------------------------------ | -------------- | ---------------------------- | --------------------------- | -------------------------------------------- |
+| **Oficial (pacman)**  | `pacman`                       | Arch Linux     | Estable, seguro              | Menos programas             | Programas base del sistema                   |
+| **AUR / Chaotic-AUR** | `yay` o `pacman` (con chaotic) | Comunidad Arch | Todo tipo de software        | Riesgo de scripts inseguros | Apps no oficiales, software raro o nuevo     |
+| **Flatpak**           | `flatpak`                      | Flathub        | Aislamiento, multiplataforma | Consume más espacio         | Apps gráficas (ej. Spotify, Discord, VSCode) |
+
+---
+
+[Regresar a la guía principal](/)
+
+> **Autor:** Fravelz

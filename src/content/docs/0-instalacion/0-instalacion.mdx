@@ -1,0 +1,220 @@
+---
+title: Instalación de Arch Linux
+description: Guía para instalar Arch Linux - ISO, USB booteable, VirtualBox y archinstall
+---
+
+## Temario
+
+Existen varias formas de instalar Arch Linux:
+
+1. [Instalar como Sistema Operativo Principal](#1-instalar-como-sistema-operativo-principal)
+
+2. [Instalar en Máquina Virtual (VirtualBox)](#2-instalar-en-máquina-virtual-virtualbox)
+
+3. [Instalar en Dual Boot](#3-instalar-en-dual-boot)
+
+Luego de elegir alguno comienza la instalación de paquetes:
+
+* [Ir a instalación desde Terminal](#instalación-desde-la-terminal)
+
+[Regresar a la guía principal](/)
+
+---
+
+## 1. Instalar como Sistema Operativo Principal
+
+**Requisitos de instalación:**
+
+* Saber usar Linux.
+* Tener un PC y una memoria USB.
+
+Enlace genérico si buscas mejor un video de YouTube: [Ir a Como instalar Arch como Sistema Operativo Principal](https://www.youtube.com/results?search_query=instalar+arch+linux+como+sistema)
+
+:::note
+Este no es un manual de instalación detallado. Puede haber variaciones según tu computadora o configuración. Usa esta guía como referencia general y asegúrate de investigar los comandos o pasos específicos que correspondan a tu dispositivo.
+Si nunca has instalado Arch Linux, **lo mejor es probarlo primero en una máquina virtual** (VirtualBox, VMware o GNOME Boxes).
+:::
+
+### 1. Descarga el archivo ISO de Arch Linux
+
+Descarga la imagen oficial desde el sitio web:
+🔗 [https://archlinux.org/download/](https://archlinux.org/download/)
+
+Guarda el archivo `.iso` en tu computadora.
+
+### 2. Crea una memoria USB booteable
+
+Usa un programa de arranque como:
+
+* **Rufus (Windows):** [https://rufus.ie](https://rufus.ie)
+* **Balena Etcher (Linux/Windows/macOS):** [https://etcher.balena.io](https://etcher.balena.io)
+* **Ventoy (multi-ISO):** [https://www.ventoy.net](https://www.ventoy.net)
+
+Selecciona la memoria USB, el archivo `.iso` y crea el medio de instalación.
+
+### 3. Inicia desde la memoria USB
+
+* Reinicia tu PC.
+* Entra a la **BIOS o UEFI** (usualmente con `F2`, `F10`, `F12` o `DEL`).
+* Configura la **USB como prioridad de arranque**.
+* Guarda y sal (normalmente `F10`).
+
+### 4. Accede al entorno de instalación
+
+Verás un menú de arranque. Elige la **primera opción** para iniciar Arch Linux.
+Te aparecerá una pantalla negra con una **terminal**.
+
+### 5. Continuación de la instalación
+
+Para continuar con la instalación en el siguiente enlace te llevará al apartado de la configuración e instalación desde la terminal:
+
+* [Ir a instalación desde Terminal](#instalación-desde-la-terminal)
+
+---
+
+## 2. Instalar en Máquina Virtual (VirtualBox)
+
+**Requisitos de instalación:**
+
+* Saber usar Linux.
+
+* Tener un PC y tenerlo con buen espacio de disco mínimo 20gb disponibles o más.
+
+* Tener una máquina virtual, preferiblemente VirtualBox. (se utilizará VirtualBox para una corta explicación).
+
+Enlace genérico si buscas mejor un video de YouTube: [Ir a Como instalar Arch en Máquina Virtual](https://www.youtube.com/results?search_query=instalar+arch+linux+en+virtualbox)
+
+### Paso 1: Descargar la imagen ISO
+
+1. Entra a la página oficial de Arch Linux:
+   * [Ir a Arch Linux .iso](https://archlinux.org/download/)
+
+2. Busca tu país en la lista de servidores (*mirrors*).
+
+   * Si **tu país no aparece**, elige **el país más cercano** geográficamente.
+
+3. Todos los servidores ofrecen **la misma imagen (.iso)** de Arch Linux. La diferencia está en la **velocidad y estabilidad de descarga**:
+
+   * Cuanto **más cerca esté el servidor**, **más rápida y estable** será la descarga.
+
+   * Si un servidor falla, **otro del mismo país puede seguir funcionando**.
+
+4. Selecciona el archivo `.iso`.
+
+### **Paso 2: Crear la máquina virtual**
+
+1. Abre **VirtualBox** y haz clic en la opción **"Nuevo"**.
+
+2. En la ventana que aparece:
+
+   * Escribe el **nombre**: `Arch Linux`
+   * Selecciona la **imagen ISO** que descargaste anteriormente.
+
+3. Las demás opciones puedes dejarlas con los valores **por defecto**.
+
+### Paso 3: Iniciar la instalación
+
+1. Inicia la máquina virtual que acabas de crear.
+
+2. Al aparecer el menú de inicio, selecciona la **primera opción**.
+
+3. Luego verás una **terminal de instalación**: desde allí comenzarás la instalación de Arch Linux.
+
+* [Ir a instalación desde Terminal](#instalación-desde-la-terminal)
+
+---
+
+## 3. Instalar en Dual Boot
+
+Enlace genérico si buscas mejor un video de YouTube: [Ir a Como instalar Arch en Dual Boot](https://www.youtube.com/results?search_query=instalar+arch+linux+en+dual+boot)
+
+No se encuentra disponible información.
+
+---
+
+## Instalación desde la terminal
+
+### 1. Conéctate a Internet (Wi-Fi)
+
+Escribe lo siguiente para usar la herramienta `iwctl`:
+
+```sh
+iwctl
+station wlan0 connect NOMBRE_DE_TU_RED
+exit
+ping -c 3 google.com
+```
+
+Si recibes respuesta del *ping*, ya estás conectado correctamente.
+
+### 2. Ejecuta el instalador automático de Arch
+
+Arch incluye una herramienta oficial que facilita el proceso:
+
+```sh
+archinstall
+```
+
+Allí podrás configurar:
+
+* Idioma y teclado
+* Zona horaria
+* Contraseña
+* Particiones del disco
+* Entorno de escritorio (opcional)
+* Usuarios y red
+
+📘 Guía oficial de `archinstall`:
+🔗 [https://wiki.archlinux.org/title/Archinstall_(Español)](https://wiki.archlinux.org/title/Archinstall_%28Español%29)
+
+### 3. Precauciones durante la instalación
+
+Asegúrate de que:
+
+* Tu conexión a Internet sea estable
+* Tu PC tenga batería suficiente (si es portátil)
+
+Si la instalación se interrumpe por apagado o pérdida de conexión, el sistema podría quedar dañado. En ese caso, puedes **reiniciar desde la USB** y repetir la instalación.
+
+### 8. Primer inicio en Arch Linux
+
+Una vez instalado y reiniciado el sistema, si no agregaste un entorno gráfico, verás una **terminal**.
+Desde ahí podrás conectarte a Internet y comenzar a instalar paquetes o entornos gráficos.
+
+### 9. Personaliza y crea tu entorno
+
+Aquí comienza lo interesante: puedes construir tu propio sistema paso a paso.
+
+Opciones recomendadas:
+
+* **Gestor de paquetes:** `pacman`
+* **Gestor de red:** `NetworkManager` o `iwd`
+* **Editor de texto:** `nano` o `nvim`
+* **Entornos gráficos:** KDE, GNOME, XFCE, o gestores de ventanas como **Hyprland**, **i3**, o **bspwm**.
+
+📗 Recursos útiles:
+
+* Arch Wiki (documentación oficial): [https://wiki.archlinux.org](https://wiki.archlinux.org)
+* Hyprland (entorno moderno para Wayland): [https://hyprland.org](https://hyprland.org)
+* Lista de entornos gráficos ligeros: [https://wiki.archlinux.org/title/Desktop_environment](https://wiki.archlinux.org/title/Desktop_environment)
+
+### Alerta final
+
+Arch Linux te da **control total**, pero eso también significa **responsabilidad total**.
+Cada configuración incorrecta puede afectar tu sistema. Sin embargo, es la mejor manera de **aprender cómo funciona Linux realmente**.
+
+:::caution
+Cuanto más poder tengas para personalizar tu ordenador, mayor será el riesgo de cometer errores, pero también el valor del conocimiento que ganarás.
+:::
+
+---
+
+## Felicitaciones
+
+Si completaste alguno de los métodos anteriores, ¡Felicidades! Has instalado Arch Linux correctamente.
+
+---
+
+[Regresar a la guía principal](/)
+
+> **Autor:** Fravelz

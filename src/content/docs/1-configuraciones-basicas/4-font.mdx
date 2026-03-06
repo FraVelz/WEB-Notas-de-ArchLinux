@@ -1,0 +1,42 @@
+---
+title: Fuentes
+description: Nerd Fonts y fuentes monoespaciadas para Hyprland
+---
+
+`GaveNerdFontPropo` es una versión **proporcional** de la fuente **Gave Nerd Font**, así que **sí, tienes una Nerd Font instalada**.
+Sin embargo, hay dos detalles importantes:
+
+---
+
+### ⚠️ Posibles problemas con `GaveNerdFontPropo`
+
+* Al ser **proporcional (Propo)**, **no está alineada monoespaciada**, y eso **puede hacer que algunos iconos se vean desajustados o muy pequeños**, especialmente en terminales, barras de estado y menús que esperan una fuente **monoespaciada (Mono)**.
+* Muchos setups con Hyprland esperan una fuente del estilo `Nerd Font Mono`.
+
+---
+
+### ✅ Qué hacer
+
+Instala una variante **monoespaciada** y configúrala como tu fuente principal para iconos:
+
+```bash
+sudo pacman -S ttf-jetbrains-mono-nerd
+```
+
+Luego actualiza la caché:
+
+```bash
+fc-cache -fv
+```
+
+Y en tus configuraciones (por ejemplo, en `~/.config/waybar/config`, `kitty.conf`, `hyprland.conf`, etc.) cambia cualquier línea como:
+
+```ini
+font = GaveNerdFontPropo 12
+```
+
+por
+
+```ini
+font = JetBrainsMono Nerd Font 12
+```

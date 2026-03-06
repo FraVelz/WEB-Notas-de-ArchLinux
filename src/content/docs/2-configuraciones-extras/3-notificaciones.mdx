@@ -1,0 +1,76 @@
+---
+title: Notificaciones
+description: Bandeja del sistema y notificaciones en Hyprland
+---
+
+## Diferencia importante
+
+* 🖼 **Bandeja del sistema (tray)** → íconos persistentes de apps en segundo plano
+* 🔔 **Área de notificaciones** → avisos emergentes (pop-ups) cuando pasa algo
+
+---
+
+## Bandeja del sistema (tray)
+
+* Es **parte de la barra** (Waybar).
+* Muestra **iconos pequeños permanentes** como Wi-Fi, Bluetooth, volumen, etc.
+* Se añade con el módulo `"tray"` en tu `config.jsonc` de Waybar.
+* No muestra mensajes, solo iconos.
+
+---
+
+## Área de notificaciones (notificación daemon)
+
+Waybar **no muestra notificaciones emergentes**.
+Para eso necesitas un **notificación daemon**:
+
+| Daemon   | Descripción                                        |
+| -------- | -------------------------------------------------- |
+| `mako`   | Muy usado en Wayland, minimalista                  |
+| `swaync` | Notificaciones + centro de notifs (más completo)   |
+| `dunst`  | Clásico, para X11 (no recomendado en Wayland puro) |
+
+---
+
+## Ejemplo con mako
+
+```bash
+sudo pacman -S mako
+```
+
+Crea la configuración:
+
+```bash
+mkdir -p ~/.config/mako
+nano ~/.config/mako/config
+```
+
+Ejemplo básico:
+
+```
+background-color=#1e1e2e
+text-color=#ffffff
+border-radius=6
+font=JetBrainsMono 10
+default-timeout=5000
+```
+
+Inícialo (o ponlo en `hyprland.conf` para que inicie siempre):
+
+```bash
+mako &
+```
+
+Para probar:
+
+```bash
+sudo pacman -S libnotify
+notify-send "Hola" "Esto es una notificación"
+```
+
+---
+
+## Resumen
+
+* **Tray** = iconos permanentes en Waybar
+* **Área de notificaciones** = pop-ups (usa `mako` o `swaync`)
